@@ -18,4 +18,12 @@ buildFHSUserEnv {
     # https://wayland-devel.freedesktop.narkive.com/wtyneVJL/weston-launch-xkbcommon-error
     [ pkgs.dbus pkgs.xkeyboard_config ];
   runScript = "Telegram";
+
+  meta = with lib; {
+    description = "Official Telegram Desktop, packaging by using GitHub binary and buildFHSUserEnv. ";
+    homepage = "https://github.com/telegramdesktop/tdesktop/tree/v${version}";
+    license = licenses.gpl3;
+    maintainers = [ maintainers.vanilla ];
+    platforms = [ "x86_64-linux" ];
+  };
 }
