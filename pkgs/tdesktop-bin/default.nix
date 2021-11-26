@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, buildFHSUserEnv, ... }:
+{ stdenv, fetchurl, buildFHSUserEnv, lib }:
 let tdesktop-bin = stdenv.mkDerivation {
   pname = "tdesktop-bin";
   version = "3.2.5";
@@ -16,7 +16,7 @@ buildFHSUserEnv {
     (with pkgs; [ glib fontconfig freetype ]) ++
     (with pkgs.xlibs; [ libxcb libX11 ]) ++
     # https://wayland-devel.freedesktop.narkive.com/wtyneVJL/weston-launch-xkbcommon-error
-    [ pkgs.dbus pkgs.xkeyboard_config ];
+    (with pkgs; [ dbus xkeyboard_config desktop-file-utils ]);
   runScript = "Telegram";
 
   meta = with lib; {
