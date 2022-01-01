@@ -4,9 +4,6 @@ on: [ push ]
 jobs:
   nix-bundle:
     runs-on: ubuntu-latest
-    env:
-      CMD: nix-bundle "(pkgs.callPackage ./. { }).arknights-mower" /bin/arknights-mower
-
     steps:
       - uses: actions/checkout@v2
       - uses: cachix/install-nix-action@v15
@@ -14,3 +11,4 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - run: nix-shell nix-scripts/bundle-am.nix
+      - run: nix-shell -p tree --run 'tree'
