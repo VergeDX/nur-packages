@@ -18,5 +18,5 @@ jobs:
 
       - run: nix-env -i nix-bundle -f '<nixpkgs>'
       - run: nix-bundle "(pkgs.callPackage ./. { }).$AM" /bin/$AM
-      - run: nix-bundle "(pkgs.callPackage ./. { }).$AM" /bin/$AM
+      - run: /nix/store/mvkmiv8wgfh9cpakcxxmp5bbxjvl1p3l-arx
       - run: ls -al # Where is the output...?
