@@ -1,5 +1,9 @@
 name: nix-bundle arknights-mower
-on: [ push ]
+
+on:
+  push:
+    paths:
+      - 'pkgs/arknights-mower'
 
 jobs:
   nix-bundle:
