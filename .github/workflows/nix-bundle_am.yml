@@ -23,7 +23,8 @@ jobs:
       image: ${{ matrix.container }}
 
     steps:
-      - uses: actions/checkout@v2
+      # https://github.com/actions/checkout/issues/334
+      - uses: actions/checkout@v1
 
       - run: nix-channel --add $CH_URL nixpkgs
       - run: nix-channel --update
