@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         container: [
-            "nixos/nix:latest-amd64"
+            "nixos/nix:latest-amd64",
             "nixos/nix:latest-arm64"
         ]
 
