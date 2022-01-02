@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CH_URL: https://nixos.org/channels/nixos-21.11
+      CH: https://nixos.org/channels/nixos-21.11
 
     strategy:
       matrix:
@@ -26,7 +26,7 @@ jobs:
       # https://github.com/actions/checkout/issues/334
       - uses: actions/checkout@v1
 
-      - run: nix-channel --add $CH_URL nixpkgs
+      - run: nix-channel --add ${{ env.CH }} nixpkgs
       - run: nix-channel --update
       - run: nix-shell nix-scripts/bundle-am.nix
 
