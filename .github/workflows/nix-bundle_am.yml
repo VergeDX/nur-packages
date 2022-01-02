@@ -14,13 +14,13 @@ jobs:
         arch: [ "linux/amd64", "linux/arm64/v8" ]
 
     container:
-      image: alpine:latest
+      image: ubuntu:latest
       options: --platform ${{ matrix.arch }}
 
     steps:
       - uses: actions/checkout@v2
 
-      - run: apk add bash
+      # - run: apk add bash
       - uses: cachix/install-nix-action@v15
         with:
           nix_path: nixpkgs=channel:nixos-unstable
