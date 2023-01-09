@@ -55,6 +55,8 @@ clangStdenv.mkDerivation rec {
 
   patches = [
     ./no-install-config.patch
+
+    # Also fixs the memory leak.
     ./remove-manual-line-count.patch
   ];
 
